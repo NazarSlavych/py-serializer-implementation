@@ -1,4 +1,7 @@
+import io
 import json
+
+from rest_framework.parsers import JSONParser
 
 from car.models import Car
 from car.serializers import CarSerializer
@@ -14,4 +17,4 @@ def deserialize_car_object(car_json: str) -> Car:
     if serializer.is_valid():
         return serializer.save()
     else:
-        return serializer.errors
+        raise ValueError("Invalid car data")
