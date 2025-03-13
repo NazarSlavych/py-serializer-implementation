@@ -14,4 +14,4 @@ def deserialize_car_object(car_json: str) -> Car:
     if serializer.is_valid():
         return serializer.save()
     else:
-        raise ValueError(serializer.errors)
+        return serializer.errors
